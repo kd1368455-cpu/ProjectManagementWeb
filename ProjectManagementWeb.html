@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>案件管理システム（Web版）</title>
+    <meta name="description" content="業務システム開発を想定した案件管理Web画面です。案件一覧、検索、登録フォームなどの基本機能をHTML/CSSで再現しています。">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f7;
+            color: #333;
+        }
+        header {
+            background-color: #1f2933;
+            color: #fff;
+            padding: 16px 24px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .container {
+            max-width: 960px;
+            margin: 24px auto;
+            background-color: #fff;
+            padding: 24px;
+            border-radius: 6px;
+        }
+        h2 {
+            border-left: 4px solid #3b82f6;
+            padding-left: 8px;
+            font-size: 18px;
+            margin-bottom: 16px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 24px;
+        }
+        th, td {
+            border: 1px solid #e5e7eb;
+            padding: 8px;
+            font-size: 14px;
+        }
+        th {
+            background-color: #f3f4f6;
+        }
+        .status {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            display: inline-block;
+        }
+        .open { background-color: #d1fae5; color: #065f46; }
+        .progress { background-color: #fef3c7; color: #92400e; }
+        .closed { background-color: #fee2e2; color: #991b1b; }
+
+        form {
+            display: grid;
+            gap: 12px;
+            max-width: 480px;
+        }
+        input[type="text"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #d1d5db;
+            font-size: 14px;
+        }
+        textarea {
+            min-height: 100px;
+        }
+        input[type="submit"] {
+            width: 160px;
+            padding: 10px;
+            background-color: #3b82f6;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #2563eb;
+        }
+    </style>
+</head>
+<body>
+
+<header>案件管理システム（Web版）</header>
+
+<div class="container">
+
+    <section>
+        <h2>案件一覧</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>案件ID</th>
+                    <th>案件名</th>
+                    <th>担当者</th>
+                    <th>ステータス</th>
+                    <th>開始日</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>PJ-001</td>
+                    <td>勤怠管理システム開発</td>
+                    <td>佐藤</td>
+                    <td><span class="status open">受付中</span></td>
+                    <td>2026-04-01</td>
+                </tr>
+                <tr>
+                    <td>PJ-002</td>
+                    <td>医療予約管理システム</td>
+                    <td>田中</td>
+                    <td><span class="status progress">進行中</span></td>
+                    <td>2026-03-15</td>
+                </tr>
+                <tr>
+                    <td>PJ-003</td>
+                    <td>問い合わせ管理システム</td>
+                    <td>山本</td>
+                    <td><span class="status closed">完了</span></td>
+                    <td>2026-02-10</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>案件検索（簡易）</h2>
+        <form>
+            <input type="text" placeholder="案件名で検索">
+            <select>
+                <option value="">ステータスを選択</option>
+                <option>受付中</option>
+                <option>進行中</option>
+                <option>完了</option>
+            </select>
+            <input type="submit" value="検索">
+        </form>
+    </section>
+
+    <section style="margin-top: 40px;">
+        <h2>案件登録フォーム</h2>
+        <form>
+            <input type="text" placeholder="案件名">
+            <input type="text" placeholder="担当者名">
+            <select>
+                <option value="">ステータスを選択</option>
+                <option>受付中</option>
+                <option>進行中</option>
+                <option>完了</option>
+            </select>
+            <textarea placeholder="案件の概要"></textarea>
+            <input type="submit" value="登録する">
+        </form>
+    </section>
+
+</div>
+
+</body>
+</html>
